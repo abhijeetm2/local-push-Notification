@@ -1,15 +1,18 @@
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:push_notification/screens/SecondPage.dart';
 import 'package:push_notification/widget/notification_api.dart';
 
-class PushNotification extends StatefulWidget {
+class PushNotificationScreen extends StatefulWidget {
+  static String channel = 'basic_channel';
+
   @override
-  _PushNotificationState createState() => _PushNotificationState();
+  _PushNotificationScreenState createState() => _PushNotificationScreenState();
 }
 
-class _PushNotificationState extends State<PushNotification> {
+class _PushNotificationScreenState extends State<PushNotificationScreen> {
   @override
   void initState() {
     // TODO: implement initState
@@ -20,6 +23,20 @@ class _PushNotificationState extends State<PushNotification> {
     listenNotification();
 
     NotificationApi.initializetimezone();
+    AwesomeNotifications().initialize(
+        // set the icon to null if you want to use the default app icon
+        null,
+        [
+          NotificationChannel(
+              channelKey: PushNotificationScreen.channel,
+              channelName: 'Basic notifications',
+              channelDescription: 'Notification channel for basic tests',
+              defaultColor: Color(0xFF9D50DD),
+              ledColor: Colors.white,
+              playSound: true,
+              enableLights: true,
+              enableVibration: true)
+        ]);
   }
 
   @override
@@ -70,10 +87,21 @@ class _PushNotificationState extends State<PushNotification> {
                       );
                     }),
                 buildButtonContainer(
+                    text: 'awesomeNotification',
+                    icon: Icon(Icons.notifications_active),
+                    function: () {
+                      return NotificationApi.awesomeNotification(
+                          id: 1,
+                          title: 'super women',
+                          message: 'sexey super women',
+                          url:
+                              'https://static.episodate.com/images/tv-show/thumbnail/43234.jpg');
+                    }),
+                buildButtonContainer(
                     text: 'Remove Notification',
                     icon: Icon(Icons.delete_forever),
                     function: () {
-                      return null;
+                      return NotificationApi.disposeNotification();
                     }),
               ],
             ),

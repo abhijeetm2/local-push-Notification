@@ -3,7 +3,17 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="/Dummy.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="C:/src/flutter/bin/cache/dart-sdk/lib/html/dart2js/html_dart2js.dart">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/push_notification/android/app/src/main/AndroidManifest.xml">
           <value>
             <set />
           </value>
@@ -24,6 +34,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/push_notification/lib/screens/push_notification_screen.dart">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/push_notification/lib/utils/Utils.dart">
           <value>
             <set />
           </value>

@@ -1,4 +1,7 @@
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:push_notification/screens/push_notification_screen.dart';
+import 'package:push_notification/utils/Utils.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
@@ -94,4 +97,42 @@ class NotificationApi {
         ? scheduledDate.add(Duration(seconds: 12))
         : scheduledDate;
   }
+
+  static StyleInformation _styleInformation() {
+    //....big picture style
+    final large_iconPath = Utils.downloadFiles(
+        'https://static.episodate.com/images/tv-show/thumbnail/35624.jpg',
+        'largeIcon');
+    final big_iconPath = Utils.downloadFiles(
+        'https://static.episodate.com/images/tv-show/thumbnail/43234.jpg',
+        'bigPicture');
+
+    final styleInformation = BigPictureStyleInformation(
+        FilePathAndroidBitmap(big_iconPath.toString()),
+        largeIcon: FilePathAndroidBitmap(large_iconPath.toString()));
+    return styleInformation;
+  }
+
+  //awesome notification
+  static awesomeNotification(
+          {required int id,
+          required String title,
+          required String message,
+          required String url}) =>
+      () {
+        //...
+        AwesomeNotifications().createNotification(
+          content: NotificationContent(
+              id: id,
+              channelKey: PushNotificationScreen.channel,
+              title: title,
+              body: message,
+              bigPicture: url,
+              notificationLayout: NotificationLayout.BigPicture),
+        );
+      };
+
+  static void disposeNotification() => () {
+        AwesomeNotifications().dismissAllNotifications();
+      };
 }

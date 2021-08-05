@@ -2,6 +2,10 @@
   <library name="Flutter Plugins" type="FlutterPluginsLibraryType">
     <CLASSES>
       <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_local_notifications-6.1.1" />
+      <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.3" />
+      <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.0.2" />
+      <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-2.0.2" />
+      <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/awesome_notifications-0.0.6+10" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
